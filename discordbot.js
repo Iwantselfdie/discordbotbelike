@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+require("dotenv").config()
 
 client.on('ready', () => {
  	console.log("Bot is on!");
@@ -194,4 +195,4 @@ else {
 	console.log(msg.author.tag + `: ` + msg.content);
 }
 });
-client.login('ODM5MDY2MzU0MTY5NDEzNjky.YJEPbw.Glznz61PCfr78VN1fs17gCH4rWQ');
+client.login(process.env.token);
