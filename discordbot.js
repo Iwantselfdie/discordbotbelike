@@ -185,14 +185,10 @@ if (msg.content.startsWith('.whatyouknowaboutrollingdowninthedeep')) {
 if (msg.content.toLowerCase().includes('slave') || msg.content.toLowerCase().includes('slave owner')) {
  	msg.react('👀');
 }
-if (msg.content.startsWith('.posturecheckStart')) {
-	var timeOut = msg.content.replace('.posturecheckStart ', '')
-	setTimeout(() => {
-		msg.channel.send('<@!' + msg.author.id + '>, Posture check!')
-	}, timeOut*100);
-}
 else {
 	console.log(msg.author.tag + `: ` + msg.content);
 }
 });
 client.login(process.env.token);
+
+/// git add . , git commit -m "commit message", git push
