@@ -154,14 +154,18 @@ if (msg.content.startsWith('.rockpaperscissors')) {
 	}, 9000);
 }
 if (msg.content.startsWith('.steal')) {
-	var fromWho = msg.content.replace('.steal ', '')
+	var fromWho = msg.content.replace('.steal', '')
 	if (fromWho === '<@!839066354169413692>') {
 		msg.channel.send(`my balls aren't getting plundered today chief`)
-	} else {
+	} else if (fromWho.length < 1) { 
+		msg.channel.send("there's no one to steal from dumbass") 
+	} else if (fromWho.length < 1980) {
 		const Response = Math.floor(Math.random() * 100000);
 		msg.channel.send('<@!' + msg.author.id + '>')
 		msg.channel.send(' stole ' + fromWho + `'s stuff`)
 		msg.channel.send('totaling $' + Response)
+	} else {
+		msg.channel.send('name too long bro, shorten it down.')
 	}
 }
 if (msg.content.startsWith('.channel')) {
@@ -182,7 +186,7 @@ if (msg.content.startsWith('.deleteChannel')) {
 if (msg.content.startsWith('.whatyouknowaboutrollingdowninthedeep')) {
 	msg.channel.send('when your brain goes numb you call that mental freeze')
 }  
-if (msg.content.toLowerCase().includes('slave') || msg.content.toLowerCase().includes('slave owner')) {
+if (msg.content.toLowerCase().includes('slave') || msg.content.toLowerCase().includes('forced labour') || msg.content.toLowerCase().includes('jacob')) {
  	msg.react('👀');
 }
 else {
