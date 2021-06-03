@@ -98,9 +98,12 @@ if(msg.content.startsWith('.version')) {
 		} else { if(version === ' 1.0.1') {
 			msg.channel.send('1.0.1, dumbass owner finally found out how to use msg.react')
 		} else { if(version === ' 1.0.2') {
-	msg.channel.send('1.0.2, beta or sumn, channel creation and deletion added')
+			msg.channel.send('1.0.2, beta or sumn, channel creation and deletion added')
+		} else { if(version === ' 1.0.3') {
+			msg.channel.send('1.0.3, added steal, no economy, just steal...')
 		} else { 
 			msg.channel.send('seems like this version doesnt exist dumbass')
+		}
 		}
 		}
 		} 
