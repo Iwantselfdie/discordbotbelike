@@ -79,6 +79,7 @@ echo - echo
 channel - creates a channel (have to specify name tho)
 deleteChannel - **WARNING:** deletes the channel **you typed the message in**
 steal - steal from who??? me?? don't you dare...
+avatar - shows ur avatar
 
 
 all the commands start with .
@@ -101,14 +102,21 @@ if(msg.content.startsWith('.version')) {
 			msg.channel.send('1.0.2, beta or sumn, channel creation and deletion added')
 		} else { if(version === ' 1.0.3') {
 			msg.channel.send('1.0.3, added steal, no economy, just steal...')
+		} else { if(version === ' 1.0.4') {
+			msg.channel.send(`1.0.4, pog added .avatar, definitely didn't copy from discord.js`)
+		}
+		else { if(version === ' list') {
+			msg.channel.send('1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4 (current)')
 		} else { 
 			msg.channel.send('seems like this version doesnt exist dumbass')
 		}
 		}
 		}
+		}
+		}
 		} 
 	} else {
-	msg.channel.send('1.0.3, added steal, no economy, just steal...')
+	msg.channel.send(`1.0.4, pog added .avatar, definitely didn't copy from discord.js`)
 	}
 }
 if(msg.content.startsWith('.oncouch')) {
@@ -179,12 +187,23 @@ if (msg.content.startsWith('.channel')) {
 		.catch(console.error); 
 	}
 }
+if (msg.content.startsWith('.voicechannel')) {
+	if (msg.member.hasPermission('CREATE_CHANNELS')) { 
+		var channelName = msg.content.replace('.voicechannel ', '') 
+		msg.guild.channels.create(channelName, { type: 'voice', reason: 'Channel created by ' + msg.author.tag }) 
+		.then(console.log(`Channel created by ` + msg.author.tag + ` with the name ` + channelName))
+		.catch(console.error); 
+	}
+}
 if (msg.content.startsWith('.deleteChannel')) {
 	if (msg.member.hasPermission('CREATE_CHANNELS')) { 
 		msg.channel.delete()
 		.then(console.log(`Channel deleted by ` + msg.author.tag + ` with the name ` + channelName))
 		.catch(console.error); 
 	}
+}
+if (msg.content.startsWith('.avatar')) {
+	msg.channel.send('Your avatar: ' + msg.author.displayAvatarURL({ format: 'png', dynamic: true }));
 }
 if (msg.content.startsWith('.whatyouknowaboutrollingdowninthedeep')) {
 	msg.channel.send('when your brain goes numb you call that mental freeze')
