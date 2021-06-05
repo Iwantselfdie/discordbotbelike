@@ -76,8 +76,6 @@ oncouch - do you have less than 2 braincells, self explanatory
 feed - feed me plz
 richmond - bad
 echo - echo
-channel - creates a channel (have to specify name tho)
-deleteChannel - **WARNING:** deletes the channel **you typed the message in**
 steal - steal from who??? me?? don't you dare...
 avatar - shows ur avatar
 
@@ -166,7 +164,7 @@ if (msg.content.startsWith('.rockpaperscissors')) {
 }
 if (msg.content.startsWith('.steal')) {
 	var fromWho = msg.content.replace('.steal', '')
-	if (fromWho === '<@!839066354169413692>') {
+	if (fromWho === ' <@!839066354169413692>') {
 		msg.channel.send(`my balls aren't getting plundered today chief`)
 	} else if (fromWho.length < 1) { 
 		msg.channel.send("there's no one to steal from dumbass") 
@@ -185,7 +183,7 @@ if (msg.content.startsWith('.channel')) {
 		msg.guild.channels.create(channelName, { reason: 'Channel created by ' + msg.author.tag }) 
 		.then(console.log(`Channel created by ` + msg.author.tag + ` with the name ` + channelName))
 		.catch(console.error); 
-	}
+	} 
 }
 if (msg.content.startsWith('.voicechannel')) {
 	if (msg.member.hasPermission('CREATE_CHANNELS')) { 
