@@ -58,8 +58,8 @@ if(msg.content.startsWith('.ping')) {
 if(msg.content.toLowerCase().includes('luv u') || msg.content.toLowerCase().includes('nice cock')) {
  	msg.channel.send('u too ' + msg.author.username);
 }
-if(msg.content.startsWith('.socials')) {
- 	msg.channel.send(`haven't got socials weirdchamp, but my creator is extoplasm#0058`)
+if(msg.content.startsWith('.creator')) {
+ 	msg.channel.send(`my creator is エクトプラズム#0058`)
 }
 	var spam = false;
 if(msg.content.startsWith('.help')) {
@@ -68,7 +68,7 @@ if(msg.content.startsWith('.help')) {
 	.setTitle('you asked for help?')
 	.setURL('https://www.youtube.com/watch?v=oHg5SJYRHA0')
 	.setDescription(`ping - see if the bot is alive
-socials - socials
+creator - who made me? 
 help - help message!
 version - bot version
 couch - king of the hill, but worse
@@ -128,8 +128,14 @@ if (msg.content.startsWith('first')) {
 }
 if (msg.content.startsWith('.echo')) {
 	var whatEcho = msg.content.replace('.echo', '')
+	if (msg.content.length < 7) {
+		msg.channel.send('actually put something in that i should echo, are you dumb? do you think i have super dooper magical powers that will echo what you have in mind? are you ok sir.')
+	} else if (msg.author.id === '520905600184483850' || msg.author.id === '758595526370787330') {
+		msg.channel.send('haha echo perms removed')
+	} else {
 	msg.channel.send(whatEcho)
 	msg.delete()
+	}
 }
 if (msg.content.startsWith('.rockpaperscissors')) {
 	msg.channel.send('send your option in chat on the count of 4')
@@ -177,37 +183,21 @@ if (msg.content.startsWith('.steal')) {
 		msg.channel.send('name too long bro, shorten it down.')
 	}
 }
-if (msg.content.startsWith('.channel')) {
-	if (msg.member.hasPermission('CREATE_CHANNELS')) { 
-		var channelName = msg.content.replace('.channel ', '') 
-		msg.guild.channels.create(channelName, { reason: 'Channel created by ' + msg.author.tag }) 
-		.then(console.log(`Channel created by ` + msg.author.tag + ` with the name ` + channelName))
-		.catch(console.error); 
-	} 
-}
-if (msg.content.startsWith('.voicechannel')) {
-	if (msg.member.hasPermission('CREATE_CHANNELS')) { 
-		var channelName = msg.content.replace('.voicechannel ', '') 
-		msg.guild.channels.create(channelName, { type: 'voice', reason: 'Channel created by ' + msg.author.tag }) 
-		.then(console.log(`Channel created by ` + msg.author.tag + ` with the name ` + channelName))
-		.catch(console.error); 
-	}
-}
-if (msg.content.startsWith('.deleteChannel')) {
-	if (msg.member.hasPermission('CREATE_CHANNELS')) { 
-		msg.channel.delete()
-		.then(console.log(`Channel deleted by ` + msg.author.tag + ` with the name ` + channelName))
-		.catch(console.error); 
-	}
-}
 if (msg.content.startsWith('.avatar')) {
 	msg.channel.send('Your avatar: ' + msg.author.displayAvatarURL({ format: 'png', dynamic: true }));
 }
 if (msg.content.startsWith('.whatyouknowaboutrollingdowninthedeep')) {
 	msg.channel.send('when your brain goes numb you call that mental freeze')
-}  
+}
+if (msg.content.toLowerCase().includes('what do you know about rollign down in the deep?') || msg.content.toLowerCase().includes('what do you know about rolling down in the deep')) {
+	msg.reply('a lot.')
+	msg.react('✔')
+}
 if (msg.content.toLowerCase().includes('slave') || msg.content.toLowerCase().includes('forced labour') || msg.content.toLowerCase().includes('jacob')) {
  	msg.react('👀');
+}
+if (msg.content.toLowerCase().includes('.feed rocks')) {
+	msg.react('😋')
 }
 else {
 	console.log(msg.author.tag + `: ` + msg.content);
