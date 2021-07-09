@@ -5,7 +5,7 @@ require("dotenv").config()
 client.on('ready', () => {
  	console.log("Bot is on!");
 function infinitestatus() {
-    client.user.setPresence({ activity: { name: `.help` , type: 'PLAYING' }, status: 'dnd'})
+    client.user.setPresence({ activity: { name: `for .help` , type: 'WATCHING' }, status: 'dnd'})
     .catch(console.error);
     setTimeout(() => {
       client.user.setPresence({ activity: { name: `i eat rocks | .help` , type: 'PLAYING' }, status: 'idle'})
@@ -25,7 +25,7 @@ function infinitestatus() {
  oncouch = 'No one'
 });
 client.on('message', msg => {
- if (msg.content.startsWith('.couch')) {
+if (msg.content.startsWith('.couch')) {
 if (couch == 0) {
 	msg.channel.send(msg.author.tag + ' has sat on the couch');
 	couch++
@@ -43,26 +43,30 @@ else {
 }
 }
 }
-if(msg.content.startsWith('.feed')) {
+if (msg.content.startsWith('.feed')) {
 	var whatEat = msg.content.replace('.feed', '')
+	if (whatEat === ('') || whatEat === (' ')) {
+		msg.channel.send(`bro you can't feed me nothing are you dumb i have to eat im a hungry and growing bot`)
+	} else {
 		const feed = new Discord.MessageEmbed()
 		.setColor('#0099ff')
 		.setTitle('yum')
 		.setURL('https://www.youtube.com/watch?v=oHg5SJYRA0')
 		.setFooter('i love' + whatEat);
 		msg.channel.send(feed);
+	}
 }
-if(msg.content.startsWith('.ping')) {
+if (msg.content.startsWith('.ping')) {
 	msg.react('👀')
 }
-if(msg.content.toLowerCase().includes('luv u') || msg.content.toLowerCase().includes('nice cock')) {
+if (msg.content.toLowerCase().includes('luv u') || msg.content.toLowerCase().includes('nice cock')) {
  	msg.channel.send('u too ' + msg.author.username);
 }
-if(msg.content.startsWith('.creator')) {
+if (msg.content.startsWith('.creator')) {
  	msg.channel.send(`my creator is エクトプラズム#0058`)
 }
 	var spam = false;
-if(msg.content.startsWith('.help')) {
+if (msg.content.startsWith('.help')) {
 	const helpMessage = new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.setTitle('you asked for help?')
@@ -85,10 +89,10 @@ more soon!`);
 
 msg.channel.send(helpMessage);
 }
-if(msg.content.startsWith('.pepe')) {
+if (msg.content.startsWith('.pepe')) {
 	msg.channel.send('<:WokePepe:750492677102895224>')
 }
-if(msg.content.startsWith('.version')) {
+if (msg.content.startsWith('.version')) {
 	if(msg.content.length > 8) {
 		var version = msg.content.replace('.version', '')
 		console.log(version)
@@ -117,13 +121,13 @@ if(msg.content.startsWith('.version')) {
 	msg.channel.send(`1.0.4, pog added .avatar, definitely didn't copy from discord.js`)
 	}
 }
-if(msg.content.startsWith('.oncouch')) {
+if (msg.content.startsWith('.oncouch')) {
 	msg.channel.send(oncouch)
 }
 if (msg.content.startsWith('.richmond')) {
 	msg.react('🤢');
 }
-if (msg.content.startsWith('first')) {
+if (msg.content === 'first') {
 	msg.channel.send('shut')
 }
 if (msg.content.startsWith('.echo')) {
@@ -171,7 +175,9 @@ if (msg.content.startsWith('.rockpaperscissors')) {
 if (msg.content.startsWith('.steal')) {
 	var fromWho = msg.content.replace('.steal', '')
 	if (fromWho === ' <@!839066354169413692>') {
-		msg.channel.send(`my balls aren't getting plundered today chief`)
+		msg.channel.send(`my loot isn't getting plundered today chief`)
+	} else if (fromWho === ' <@!697281718419193896>') {
+		msg.channel.send(`owner is immune to this type of scum`)
 	} else if (fromWho.length < 1) { 
 		msg.channel.send("there's no one to steal from dumbass") 
 	} else if (fromWho.length < 1980) {
@@ -184,20 +190,74 @@ if (msg.content.startsWith('.steal')) {
 	}
 }
 if (msg.content.startsWith('.avatar')) {
-	msg.channel.send('Your avatar: ' + msg.author.displayAvatarURL({ format: 'png', dynamic: true }));
+	msg.channel.send('Your avatar: ' + msg.author.displayAvatarURL({ format: 'png', dynamic: false }));
 }
 if (msg.content.startsWith('.whatyouknowaboutrollingdowninthedeep')) {
 	msg.channel.send('when your brain goes numb you call that mental freeze')
 }
-if (msg.content.toLowerCase().includes('what do you know about rollign down in the deep?') || msg.content.toLowerCase().includes('what do you know about rolling down in the deep')) {
+if (msg.content.toLowerCase().includes('what do you know about rollign down in the deep') || msg.content.toLowerCase().includes('what do you know about rolling down in the deep')) {
 	msg.reply('a lot.')
-	msg.react('✔')
+	msg.react('😳')
 }
 if (msg.content.toLowerCase().includes('slave') || msg.content.toLowerCase().includes('forced labour') || msg.content.toLowerCase().includes('jacob')) {
  	msg.react('👀');
 }
 if (msg.content.toLowerCase().includes('.feed rocks')) {
 	msg.react('😋')
+}
+if (msg.content.startsWith('.easteregg')) {
+	msg.channel.send('me when easter egg lmao')
+	msg.react('🥚')
+}
+if (msg.content.startsWith('.test')) {
+	msg.channel.send('you found an easter egg! this only works once in a while!')
+}
+if (msg.content.startsWith('.rjfdksla;jfkl;jekwlq;jkldf;jsakl;s')) {
+	const rulesCringe = new Discord.MessageEmbed()
+	.setColor('#0099ff')
+	.setTitle('rules')
+	.setURL('https://www.youtube.com/watch?v=oHg5SJYRHA0')
+	.setDescription(`1.  No Spamming and keep low effort to a minimum.
+Spamming includes, but is not limited to: sending too many messages in quick succession, sending nonsensical/pointless messages, reaction spamming, abusing link embeds to flood chat, and making noise with the purpose of disrupting a conversation in voice chat. 
+
+While we do not mind occasional out of the blue jokes or low effort posts that aren't relevant, please keep it to a minimum as we like to keep the chat quality to a certain level, this includes but is not limited to: Frequently reposting the same image, meme, video, phrase, or alteration of.
+
+2. No Harassment/Toxicity
+Toxicity is intolerable both in text and voice chat. This also includes, but is not limited to: trolling, doxxing, use of words in a derogatory way, condescending behavior and failure to respect another member's boundaries. Be constructive and civil with criticism. Do not bash (insulting things, calling things trash and personal attacks). Critique should contain substance on how to improve. Bashing a person's work, server features and decisions is demeaning and will not be tolerated.
+
+3. Keep Advertising to a Minimum
+Posting your own videos or content every now and then is fine, as long as it is posted in the respective channel. Take care not to overdo it.
+
+4. No 18+ Content/Conversations
+Do not post anything unsuitable for people under the age of 18. Mild profanity is allowed but try to keep it to a minimum. This applies to profile pictures, usernames, nicknames, statuses, images, and discussions in both text and voice chat.
+`);
+	const rulesCringe2bruh = new Discord.MessageEmbed()
+	.setColor('#0099ff')
+	.setTitle('rules')
+	.setURL('https://discord.com/channels/@me/')
+	.setDescription(`5. No Raiding/Brigading
+Raiding other servers is unacceptable and we heavily discourage it. Raiding consists of, but is not limited to: joining a server with the explicit purpose of breaking its rules and/or attempting to taunt/annoy any of its users or staff, as well as attempting to encourage other users to raid.
+ 
+6. Use Channels For Their Intended Purposes
+Most channel names are self explanatory on what content they should contain.
+
+7. No Evading Punishment
+Do not attempt to evade punishment. If you believe you were punished unjustly, contact me or a mod
+
+8. Follow Discord's Terms of Service
+We are required to punish users caught breaking Discord's Terms of Service. It would be wise to make sure you've read through them at https://discord.com/terms
+
+9. What the Staff Say is Final
+If a staff member warns you to stop something, don't argue with them. If you have a complaint about a staff member abusing their powers, privately message a community manager with any available evidence. 
+
+10. English Only
+This is an English speaking Discord. For the sake of moderation, users speaking any language other than English will be asked to stop. memes and other jokes are allowed
+ 
+Lastly, **don't be an asshole**
+
+**Thanks, - Red**`);
+	msg.channel.send(rulesCringe);
+	msg.channel.send(rulesCringe2bruh);
 }
 else {
 	console.log(msg.author.tag + `: ` + msg.content);
