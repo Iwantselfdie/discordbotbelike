@@ -106,9 +106,11 @@ if (msg.content.startsWith('.version')) {
 			msg.channel.send('1.0.3, added steal, no economy, just steal...')
 		} else { if(version === ' 1.0.4') {
 			msg.channel.send(`1.0.4, pog added .avatar, definitely didn't copy from discord.js`)
+		} else { if(version === ' 1.0.5') {
+			msg.channel.send('1.0.5, added .vote!')
 		}
 		else { if(version === ' list') {
-			msg.channel.send('1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4 (current)')
+			msg.channel.send('1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5 (current)')
 		} else { 
 			msg.channel.send('seems like this version doesnt exist dumbass')
 		}
@@ -116,9 +118,10 @@ if (msg.content.startsWith('.version')) {
 		}
 		}
 		}
+		}
 		} 
 	} else {
-	msg.channel.send(`1.0.4, pog added .avatar, definitely didn't copy from discord.js`)
+	msg.channel.send(`1.0.5, added .vote!`)
 	}
 }
 if (msg.content.startsWith('.oncouch')) {
@@ -214,10 +217,16 @@ if (msg.content.startsWith('.test')) {
 }
 if (msg.content.startsWith('.vote')) {
 	msg.channel.send('Cast your votes, you have 15 seconds!')
-	const filter = m => m.content.includes('yes' || 'yos' || 'yay');
+	const filter = m => m.content.includes('yes');
 	const collector = msg.channel.createMessageCollector(filter, { time: 15000 });
 	collector.on('collect', m => msg.channel.send(`Collected a vote!`));
-	collector.on('end', collected => msg.channel.send(`Collected ${collected.size} votes!`));
+	collector.on('end', collected => msg.channel.send(`There were ${collected.size} votes for the topic`));
+}
+if (msg.content.startsWith('.vote')) {
+	const filter = m => m.content.includes('no');
+	const collector = msg.channel.createMessageCollector(filter, { time: 15000 });
+	collector.on('collect', m => msg.channel.send(`Someone voted against the topic!`));
+	collector.on('end', collected => msg.channel.send(`But there were ${collected.size} messages that voted against the topic!`));
 }
 if (msg.content.startsWith('.rjfdksla;jfkl;jekwlq;jkldf;jsakl;s')) {
 	const rulesCringe = new Discord.MessageEmbed()
