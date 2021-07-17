@@ -24,7 +24,7 @@ function infinitestatus() {
 });
 
 client.on('message', async msg => {
-if (msg.content.startsWith('.test')) {
+if (msg.content.startsWith('.tst')) {
 	const connection = await msg.member.voice.channel.join().then(connection => {
         // Yay, it worked!
         console.log("Successfully connected.");
@@ -33,6 +33,13 @@ if (msg.content.startsWith('.test')) {
         // Oh no, it errored! Let's log it to console :)
         console.error(e);
     });
+}
+if (msg.content.startsWith('.vote')) {
+	msg.channel.send('Cast your votes, you have 15 seconds!')
+	const filter = m => m.content.includes('yes' || 'yos' || 'yay');
+	const collector = msg.channel.createMessageCollector(filter, { time: 15000 });
+	collector.on('collect', m => msg.channel.send(`Collected a vote!`));
+	collector.on('end', collected => msg.channel.send(`Collected ${collected.size} votes!`));
 }
 else {
 	console.log(msg.author.tag + `: ` + msg.content);

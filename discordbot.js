@@ -190,7 +190,7 @@ if (msg.content.startsWith('.steal')) {
 	}
 }
 if (msg.content.startsWith('.avatar')) {
-	msg.channel.send('Your avatar: ' + msg.author.displayAvatarURL({ format: 'png', dynamic: false }));
+	msg.channel.send('Your avatar: ' + msg.author.displayAvatarURL({ format: 'png', dynamic: true }));
 }
 if (msg.content.startsWith('.whatyouknowaboutrollingdowninthedeep')) {
 	msg.channel.send('when your brain goes numb you call that mental freeze')
@@ -211,6 +211,13 @@ if (msg.content.startsWith('.easteregg')) {
 }
 if (msg.content.startsWith('.test')) {
 	msg.channel.send('you found an easter egg! this only works once in a while!')
+}
+if (msg.content.startsWith('.vote')) {
+	msg.channel.send('Cast your votes, you have 15 seconds!')
+	const filter = m => m.content.includes('yes' || 'yos' || 'yay');
+	const collector = msg.channel.createMessageCollector(filter, { time: 15000 });
+	collector.on('collect', m => msg.channel.send(`Collected a vote!`));
+	collector.on('end', collected => msg.channel.send(`Collected ${collected.size} votes!`));
 }
 if (msg.content.startsWith('.rjfdksla;jfkl;jekwlq;jkldf;jsakl;s')) {
 	const rulesCringe = new Discord.MessageEmbed()
