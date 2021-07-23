@@ -21,10 +21,12 @@ function infinitestatus() {
   }
   console.log('Status Ready!')
   infinitestatus()
- couch = 0
- oncouch = 'No one'
+ let couch = 0
+ let oncouch = 'No one'
 });
 client.on('message', msg => {
+if (msg.author.bot) {
+}
 if (msg.content.startsWith('.couch')) {
 if (couch == 0) {
 	msg.channel.send(msg.author.tag + ' has sat on the couch');
@@ -63,7 +65,7 @@ if (msg.content.toLowerCase().includes('luv u') || msg.content.toLowerCase().inc
  	msg.channel.send('u too ' + msg.author.username);
 }
 if (msg.content.startsWith('.creator')) {
- 	msg.channel.send(`my creator is エクトプラズム#0058`)
+ 	msg.channel.send(`my creator is extoplasm#0058`)
 }
 	var spam = false;
 if (msg.content.startsWith('.help')) {
@@ -72,16 +74,28 @@ if (msg.content.startsWith('.help')) {
 	.setTitle('you asked for help?')
 	.setURL('https://www.youtube.com/watch?v=oHg5SJYRHA0')
 	.setDescription(`ping - see if the bot is alive
+
 creator - who made me? 
+
 help - help message!
+
 version - bot version
+
 couch - king of the hill, but worse
+
 oncouch - do you have less than 2 braincells, self explanatory
+
 feed - feed me plz
+
 richmond - bad
+
 echo - echo
+
 steal - steal from who??? me?? don't you dare...
+
 avatar - shows ur avatar
+
+vote - i only count the votes, don't do anything else, just a disclaimer
 
 
 all the commands start with .
@@ -137,8 +151,8 @@ if (msg.content.startsWith('.echo')) {
 	var whatEcho = msg.content.replace('.echo', '')
 	if (msg.content.length < 7) {
 		msg.channel.send('actually put something in that i should echo, are you dumb? do you think i have super dooper magical powers that will echo what you have in mind? are you ok sir.')
-	} else if (msg.author.id === '520905600184483850' || msg.author.id === '758595526370787330') {
-		msg.channel.send('haha echo perms removed')
+	} else if (msg.author.id === '520905600184483850' || msg.author.id === '758595526370787330' || msg.author.id === '604485275803975689') {
+		msg.channel.send('something went wrong')
 	} else {
 	msg.channel.send(whatEcho)
 	msg.delete()
@@ -275,9 +289,7 @@ Lastly, **don't be an asshole**
 	msg.channel.send(rulesCringe);
 	msg.channel.send(rulesCringe2bruh);
 }
-else {
 	console.log(msg.author.tag + `: ` + msg.content);
-}
 });
 client.login(process.env.token);
 
