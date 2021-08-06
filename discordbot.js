@@ -72,7 +72,7 @@ if (msg.content.startsWith('.help')) {
 	const helpMessage = new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.setTitle('you asked for help?')
-	.setURL('https://www.youtube.com/watch?v=oHg5SJYRHA0')
+	.setURL('https://www.youtube.com/watch?v=xvFZjo5PgG0')
 	.setDescription(`ping - see if the bot is alive
 
 creator - who made me? 
@@ -96,6 +96,8 @@ steal - steal from who??? me?? don't you dare...
 avatar - shows ur avatar
 
 vote - i only count the votes, don't do anything else, just a disclaimer
+
+invite - gives you the invite link to my bot
 
 
 all the commands start with .
@@ -122,12 +124,15 @@ if (msg.content.startsWith('.version')) {
 			msg.channel.send(`1.0.4, pog added .avatar, definitely didn't copy from discord.js`)
 		} else { if(version === ' 1.0.5') {
 			msg.channel.send('1.0.5, added .vote!')
-		}
+		} else { if(version === ' 1.0.6') {
+      msg.channel.send('1.0.6 o7, final update')
+    }
 		else { if(version === ' list') {
 			msg.channel.send('1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5 (current)')
 		} else { 
 			msg.channel.send('seems like this version doesnt exist dumbass')
 		}
+    }
 		}
 		}
 		}
@@ -135,7 +140,7 @@ if (msg.content.startsWith('.version')) {
 		}
 		} 
 	} else {
-	msg.channel.send(`1.0.5, added .vote!`)
+	msg.channel.send(`1.0.6, o7, final update`)
 	}
 }
 if (msg.content.startsWith('.oncouch')) {
@@ -231,13 +236,13 @@ if (msg.content.startsWith('.test')) {
 }
 if (msg.content.startsWith('.vote')) {
 	msg.channel.send('Cast your votes, you have 15 seconds!')
-	const filter = m => m.content.includes('yes');
+	const filter = m => m.content.toLowerCase.includes('yes');
 	const collector = msg.channel.createMessageCollector(filter, { time: 15000 });
 	collector.on('collect', m => msg.channel.send(`Collected a vote!`));
 	collector.on('end', collected => msg.channel.send(`There were ${collected.size} votes for the topic`));
 }
 if (msg.content.startsWith('.vote')) {
-	const filter = m => m.content.includes('no');
+	const filter = m => m.content.toLowercase.includes('no');
 	const collector = msg.channel.createMessageCollector(filter, { time: 15000 });
 	collector.on('collect', m => msg.channel.send(`Someone voted against the topic!`));
 	collector.on('end', collected => msg.channel.send(`But there were ${collected.size} messages that voted against the topic!`));
@@ -246,7 +251,7 @@ if (msg.content.startsWith('.rjfdksla;jfkl;jekwlq;jkldf;jsakl;s')) {
 	const rulesCringe = new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.setTitle('rules')
-	.setURL('https://www.youtube.com/watch?v=oHg5SJYRHA0')
+	.setURL('https://www.youtube.com/watch?v=xvFZjo5PgG0')
 	.setDescription(`1.  No Spamming and keep low effort to a minimum.
 Spamming includes, but is not limited to: sending too many messages in quick succession, sending nonsensical/pointless messages, reaction spamming, abusing link embeds to flood chat, and making noise with the purpose of disrupting a conversation in voice chat. 
 
@@ -259,12 +264,12 @@ Toxicity is intolerable both in text and voice chat. This also includes, but is 
 Posting your own videos or content every now and then is fine, as long as it is posted in the respective channel. Take care not to overdo it.
 
 4. No 18+ Content/Conversations
-Do not post anything unsuitable for people under the age of 18. Mild profanity is allowed but try to keep it to a minimum. This applies to profile pictures, usernames, nicknames, statuses, images, and discussions in both text and voice chat.
+Do not post anything unsuitable for people under the age of 18. This applies to profile pictures, usernames, nicknames, statuses, images, and discussions in both text and voice chat.
 `);
 	const rulesCringe2bruh = new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.setTitle('rules')
-	.setURL('https://discord.com/channels/@me/')
+	.setURL('https://www.youtube.com/watch?v=xvFZjo5PgG0')
 	.setDescription(`5. No Raiding/Brigading
 Raiding other servers is unacceptable and we heavily discourage it. Raiding consists of, but is not limited to: joining a server with the explicit purpose of breaking its rules and/or attempting to taunt/annoy any of its users or staff, as well as attempting to encourage other users to raid.
  
@@ -272,22 +277,26 @@ Raiding other servers is unacceptable and we heavily discourage it. Raiding cons
 Most channel names are self explanatory on what content they should contain.
 
 7. No Evading Punishment
-Do not attempt to evade punishment. If you believe you were punished unjustly, contact me or a mod
+Do not attempt to evade punishment. If you believe you were punished unjustly, contact the owner or a mod
 
 8. Follow Discord's Terms of Service
 We are required to punish users caught breaking Discord's Terms of Service. It would be wise to make sure you've read through them at https://discord.com/terms
 
 9. What the Staff Say is Final
-If a staff member warns you to stop something, don't argue with them. If you have a complaint about a staff member abusing their powers, privately message a community manager with any available evidence. 
-
-10. English Only
-This is an English speaking Discord. For the sake of moderation, users speaking any language other than English will be asked to stop. memes and other jokes are allowed
+If a staff member warns you to stop something, don't argue with them. If you have a complaint about a staff member abusing their powers, privately message another staff member with any available evidence. 
  
-Lastly, **don't be an asshole**
-
-**Thanks, - Red**`);
+Lastly, **use your brain**
+`);
 	msg.channel.send(rulesCringe);
 	msg.channel.send(rulesCringe2bruh);
+}
+if (msg.content.startsWith('.invite')) {
+	const invite = new Discord.MessageEmbed()
+	.setColor('#0099ff')
+	.setTitle('my invite!')
+	.setURL('https://www.youtube.com/watch?v=xvFZjo5PgG0')
+	.setDescription(`https://discord.com/api/oauth2/authorize?client_id=839066354169413692&permissions=8&scope=bot`)
+	msg.channel.send(invite)
 }
 	console.log(msg.author.tag + `: ` + msg.content);
 });
