@@ -1,4 +1,5 @@
 # silly little discord bot
 
 just an experiment with discord.js\
-very outdated
+very outdated\
+ignore the yandere dev if else statements lol
