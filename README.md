@@ -1,5 +1,4 @@
-# discordbotbelike
+# silly little discord bot
 
-我有discord
-我想要一个bot
-所以我就自己做了一个
+just an experiment with discord.js\
+very outdated
